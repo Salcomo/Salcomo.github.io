@@ -1,11 +1,13 @@
 <?php
 if (isset($_POST['Email'])) {
 
+    // EDIT THE 2 LINES BELOW AS REQUIRED
     $email_to = "maggiacomomichael@gmail.com";
+    $email_subject = "Website Contact Form";
 
     function problem($error)
     {
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+        echo "Sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br><br>";
         echo $error . "<br><br>";
         echo "Please go back and fix these errors.<br><br>";
@@ -17,15 +19,13 @@ if (isset($_POST['Email'])) {
         !isset($_POST['Name']) ||
         !isset($_POST['Email']) ||
         !isset($_POST['Message'])
-        !isset($_POST['Subject'])
     ) {
-        problem('We are sorry, but there appears to be a problem with the form you submitted.');
+        problem('Sorry, but there appears to be a problem with the form you submitted.');
     }
 
     $name = $_POST['Name']; // required
     $email = $_POST['Email']; // required
     $message = $_POST['Message']; // required
-    $subject = $_POST['Subject']; // required
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -59,11 +59,18 @@ if (isset($_POST['Email'])) {
     $email_message .= "Name: " . clean_string($name) . "\n";
     $email_message .= "Email: " . clean_string($email) . "\n";
     $email_message .= "Message: " . clean_string($message) . "\n";
-    $email_message .= "Subject: " . clean_string($subject) . "\n";
 
     // create email headers
     $headers = 'From: ' . $email . "\r\n" .
         'Reply-To: ' . $email . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     @mail($email_to, $email_subject, $email_message, $headers);
+?>
+
+    <!-- include your success message below -->
+
+    Thanks for contacting me! I'll be in touch soon.
+
+<?php
+}
 ?>
