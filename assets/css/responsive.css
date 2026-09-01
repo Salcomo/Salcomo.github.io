@@ -4,9 +4,6 @@
   .single-about-img img {
     max-width: 100%;
   }
-  .about-list-icon {
-    width: 100%;
-  }
 } /*max-width:1440px*/
 
 @media screen and (max-width: 1199px) {
