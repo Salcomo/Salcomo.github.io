@@ -2,9 +2,10 @@ $(document).ready(function () {
   "use strict";
 
   /*=========== TABLE OF CONTENTS ===========
-1. Scroll To Top 
+1. Scroll To Top
 2. Smooth Scroll spy
 3. welcome animation support
+4. Footer copyright year
 ======================================*/
 
   // 1. Scroll To Top
@@ -69,4 +70,7 @@ $(document).ready(function () {
       .css({ opacity: "0" });
     $(".header-text a").addClass("animated fadeInDown").css({ opacity: "0" });
   });
+
+  // 4. Footer copyright year
+  $("#copyright-year").text(new Date().getFullYear());
 });
